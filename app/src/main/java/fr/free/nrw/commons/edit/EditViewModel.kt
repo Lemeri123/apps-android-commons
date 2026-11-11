@@ -163,7 +163,7 @@ class EditViewModel : ViewModel() {
             jpegtran!!.save(output.toUri())
             this.imagePath = output.absolutePath
             return output
-        } catch (e: Exception) {
+        } catch (e: IOException) {
             Timber.e(e, "saveEditedImage: Failed to rotate image")
             throw e
         }
@@ -201,7 +201,7 @@ class EditViewModel : ViewModel() {
             jpegtran!!.save(output.toUri())
             this.imagePath = output.absolutePath
             return output
-        } catch (e: Exception) {
+        } catch (e: IOException) {
             Timber.e(e, "saveEditedImage: Failed to crop image")
             throw e
         }
@@ -225,7 +225,7 @@ class EditViewModel : ViewModel() {
         try {
             jpegtran!!.blur(regions)
             jpegtran!!.save(output.toUri())
-        } catch (e: Exception) {
+        } catch (e: IOException) {
             Timber.e(e, "blurImage: Failed to blur image")
             throw e
         }

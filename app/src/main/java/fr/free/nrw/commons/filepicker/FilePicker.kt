@@ -76,7 +76,7 @@ object FilePicker : Constants {
             try {
                 val files = PickedFilesResolver.getFilesFromGalleryPictures(result.data, activity)
                 callbacks.onImagesPicked(files, ImageSource.DOCUMENTS, PickedFilesResolver.restoreType(activity))
-            } catch (e: Exception) {
+            } catch (e: IOException) {
                 Timber.e(e, "Could not handle images picked from documents")
                 callbacks.onImagePickerError(e, ImageSource.DOCUMENTS, PickedFilesResolver.restoreType(activity))
             }
@@ -99,7 +99,7 @@ object FilePicker : Constants {
             try {
                 val files = PickedFilesResolver.getFilesFromCustomSelector(result.data, activity)
                 callbacks.onImagesPicked(files, ImageSource.CUSTOM_SELECTOR, PickedFilesResolver.restoreType(activity))
-            } catch (e: Exception) {
+            } catch (e: IOException) {
                 Timber.e(e, "Could not handle images picked from the custom selector")
                 callbacks.onImagePickerError(e, ImageSource.CUSTOM_SELECTOR, PickedFilesResolver.restoreType(activity))
             }
@@ -119,7 +119,7 @@ object FilePicker : Constants {
             try {
                 val files = PickedFilesResolver.getFilesFromGalleryPictures(result.data, activity)
                 callbacks.onImagesPicked(files, ImageSource.GALLERY, PickedFilesResolver.restoreType(activity))
-            } catch (e: Exception) {
+            } catch (e: IOException) {
                 Timber.e(e, "Could not handle images picked from the gallery")
                 callbacks.onImagePickerError(e, ImageSource.GALLERY, PickedFilesResolver.restoreType(activity))
             }
@@ -141,7 +141,7 @@ object FilePicker : Constants {
 
         try {
             CameraResultHandler.processSuccessfulCameraResult(activity, callbacks)
-        } catch (e: Exception) {
+        } catch (e: IOException) {
             Timber.e(e, "Could not handle image taken with the camera")
             callbacks.onImagePickerError(e, ImageSource.CAMERA_IMAGE, PickedFilesResolver.restoreType(activity))
         }

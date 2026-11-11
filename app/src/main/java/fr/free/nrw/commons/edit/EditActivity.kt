@@ -317,7 +317,7 @@ class EditActivity : BaseActivity() {
             vm.applyPendingRotation(applicationContext.cacheDir)
             // Reload the image displaying the applied blur.
             updateImagePreview()
-        } catch (e: Exception) {
+        } catch (e: IllegalArgumentException) {
             Timber.e(e, "Failed to apply blur ${e.localizedMessage}")
             Toast
                 .makeText(
@@ -356,7 +356,7 @@ class EditActivity : BaseActivity() {
                 // Update the image preview.
                 updateImagePreview()
             }
-        } catch (e: Exception) {
+        } catch (e: IllegalArgumentException) {
             Timber.e(e, "applyCrop: Failed to apply crop ${e.localizedMessage}")
             Toast
                 .makeText(
@@ -415,7 +415,7 @@ class EditActivity : BaseActivity() {
 
         try {
             binding.blurOverlay.setImageProperties(vm.refreshProperties())
-        } catch (e: Exception) {
+        } catch (e: IOException) {
             Timber.e(e, "Error getting image properties: ${e.localizedMessage}")
             Toast
                 .makeText(
@@ -440,7 +440,7 @@ class EditActivity : BaseActivity() {
                 }
             setResult(RESULT_OK, resultIntent)
             finish()
-        } catch (e: Exception) {
+        } catch (e: IOException) {
             Timber.e(
                 e,
                 "saveEditedImage: Exception occurred during save process ${e.localizedMessage}",
