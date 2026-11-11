@@ -616,7 +616,7 @@
     <ID>TooGenericExceptionCaught:LeaderboardFragment.kt$LeaderboardFragment$e: Exception</ID>
     <ID>TooGenericExceptionCaught:LocationPickerActivity.kt$LocationPickerActivity$e: Exception</ID>
     <ID>TooGenericExceptionCaught:LocationUtils.kt$LocationUtils$e: Exception</ID>
-    <ID>TooGenericExceptionCaught:LoginActivity.kt$LoginActivity$e: Exception</ID>
+    
     <ID>TooGenericExceptionCaught:MapUtils.kt$MapUtils$e: Exception</ID>
     <ID>TooGenericExceptionCaught:MediaDetailPagerFragment.kt$MediaDetailPagerFragment$e: Exception</ID>
     <ID>TooGenericExceptionCaught:MediaDetailViewModel.kt$MediaDetailViewModel$e: Exception</ID>

@@ -143,6 +143,19 @@ class LoginActivityUnitTests {
     }
 
     @Test
+    @Throws(IllegalArgumentException::class)
+    fun testOnDestroyWithIllegalArgumentException() {
+        `when`(progressDialog.isShowing).thenReturn(true)
+        whenever(progressDialog.dismiss()).thenThrow(IllegalArgumentException())
+        val method: Method =
+            LoginActivity::class.java.getDeclaredMethod(
+                "onDestroy",
+            )
+        method.isAccessible = true
+        method.invoke(activity)
+    }
+
+    @Test
     @Throws(Exception::class)
     fun testOnLoginSuccessCaseDefault() {
         activity.onLoginSuccess(loginResult)
