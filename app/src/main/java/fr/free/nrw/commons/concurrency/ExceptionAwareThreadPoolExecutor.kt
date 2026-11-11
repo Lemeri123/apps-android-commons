@@ -29,9 +29,8 @@ class ExceptionAwareThreadPoolExecutor(
                 // ignore
             } catch (e: ExecutionException) {
                 throwable = e.cause ?: e
-            } catch (e: Exception) {
-                throwable = e
             }
+        }
         }
 
         throwable?.let {

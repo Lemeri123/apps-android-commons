@@ -74,9 +74,6 @@ class ReasonBuilder
                     val globalUsages = globalFileUsage?.query?.pages?.sumOf { it.fileUsage.size } ?: 0
 
                     appendArticlesUsed(globalUsages, media, reason)
-                } catch (e: Exception) {
-                    Timber.e(e, "Error fetching file usage")
-                    throw e
                 }
             }
         }

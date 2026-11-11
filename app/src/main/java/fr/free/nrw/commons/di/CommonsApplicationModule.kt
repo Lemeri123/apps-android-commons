@@ -525,10 +525,6 @@ val MIGRATION_21_22 =
                 }
                 cursor.close()
                 oldDb.close()
-            } catch (e: Exception) {
-                Timber.e(e, "Exception during legacy database migration")
-                throw e
-            }
         }
     }
 
